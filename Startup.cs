@@ -12,6 +12,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using LibraryApi.Models;
 using JsonApiDotNetCore.Extensions;
+using JsonApiDotNetCore.Data;
+using LibraryApi.Domain.Authors;
 
 namespace LibraryApi
 {
@@ -33,6 +35,8 @@ namespace LibraryApi
             services.AddJsonApi<AppDbContext>();
 
             services.AddCors();
+
+            services.AddScoped<IEntityRepository<Author>, AuthorsRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
