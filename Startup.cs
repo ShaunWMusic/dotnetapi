@@ -17,6 +17,8 @@ using LibraryApi.Domain.Authors;
 using LibraryApi.Domain.Books;
 using JsonApiDotNetCore.Models;
 using LibraryApi.Domain.Users;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace LibraryApi
 {
@@ -39,6 +41,13 @@ namespace LibraryApi
             {
                 options.ValidateModelState = true;
             });
+
+            var signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Configuration["JWT_SECRET"]));
+            var creds = new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256);
+
+            services.AddSingleton(signingKey);
+            services.AddSingleton(creds);
+
 
             services.AddCors();
 
@@ -63,6 +72,11 @@ namespace LibraryApi
             app.UseCors(a => a.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseMvc();
             app.UseJsonApi();
+
+            // var crypto = new System.Security.Cryptography.RNGCryptoServiceProvider();
+            // var bytes = new byte[48];
+            // crypto.GetBytes(bytes);
+            // Console.WriteLine(Convert.ToBase64String(bytes));
         }
     }
 }
