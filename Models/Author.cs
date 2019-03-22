@@ -8,6 +8,6 @@ namespace LibraryApi.Models
         [Attr("first")] public string First { get; set; }
 
         [Attr("last")] public string Last { get; set; }
-        [HasMany("books")] public List<Book> Book { get; set; }
+        [HasMany("books")] public List<Book> Books { get; set; }
     }
 }
