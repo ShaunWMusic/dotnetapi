@@ -20,6 +20,7 @@ using LibraryApi.Domain.Users;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using LibraryApi.Services;
+using LibraryApi.Repositories;
 
 namespace LibraryApi
 {
@@ -55,6 +56,7 @@ namespace LibraryApi
             services.AddScoped<CurrentUserService>();
             services.AddScoped<IEntityRepository<Author>, AuthorsRepository>();
             services.AddScoped<IEntityRepository<Book>, BooksRepository>();
+            services.AddScoped<IEntityRepository<Review>, BelongsToUserRepository<Review>>();
             services.AddScoped<ResourceDefinition<User>, UserResource>();
         }
 
