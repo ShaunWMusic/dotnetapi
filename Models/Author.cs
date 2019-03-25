@@ -3,7 +3,7 @@ using JsonApiDotNetCore.Models;
 
 namespace LibraryApi.Models
 {
-    public class Author : Identifiable
+    public class Author : BelongsToUser
     {
         [Attr("first")] public string First { get; set; }
 

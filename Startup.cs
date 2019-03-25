@@ -19,6 +19,7 @@ using JsonApiDotNetCore.Models;
 using LibraryApi.Domain.Users;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using LibraryApi.Services;
 
 namespace LibraryApi
 {
@@ -51,6 +52,7 @@ namespace LibraryApi
 
             services.AddCors();
 
+            services.AddScoped<CurrentUserService>();
             services.AddScoped<IEntityRepository<Author>, AuthorsRepository>();
             services.AddScoped<IEntityRepository<Book>, BooksRepository>();
             services.AddScoped<ResourceDefinition<User>, UserResource>();

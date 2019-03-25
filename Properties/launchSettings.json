@@ -24,7 +24,7 @@
       "applicationUrl": "https://localhost:3001;http://localhost:3000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "JWT_SECRET": "RiC7JPHOkG7NCsF55MIi9Ckphe7DxN7XV/mPZzc1z2GnCbm/gniHJiLprSXrP88M"
+        "JWT_SECRET": "ldyVdt1M75Msg3FvUYjug34TUwmASMpBTZ2SYW2STJyN6vTKF89inmgmswuqCEFz"
       }
     }
   }
